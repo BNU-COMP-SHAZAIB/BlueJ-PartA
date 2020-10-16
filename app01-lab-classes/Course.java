@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class Course here.
+ * The Course Title and Course Number 
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Shazaib Choudhry 
+ * @version (1)
  */
 public class Course
 {

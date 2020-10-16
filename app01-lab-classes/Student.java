@@ -5,6 +5,8 @@ import java.util.*;
  * It holds the student details such as name, id and credits
  * 
  * @author Michael Kölling and David Barnes
+ * edited by Shazaib Choudhry
+ * 
  * @version 2016.02.29
  * 
  */
