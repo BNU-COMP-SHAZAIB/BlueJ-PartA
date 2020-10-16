@@ -11,3 +11,4 @@ sarahStudent.addCredits(20);
 adamStudent.addCredits(20);
 daveStudent.addCredits(20);
 sarahStudent.changeName("Sarah Cunningham");
+Course course1 = new Course("G400", "Computing");

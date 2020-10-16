@@ -18,6 +18,10 @@ public class Student
     
     // A BSc course has 120 credits, each module has 15 Credits
     private int credits;
+    
+    private Course course;
+    
+    
 
       
     /**
@@ -70,6 +74,17 @@ public class Student
     {
         return credits;
     }
+    
+    /**
+     * add a course to a student
+     */
+    public void addCourse(Course course)
+    {
+     this.course = course;
+     
+        
+    }
+   
 
     /**
      * Return the login name of this student. The login name is a combination
@@ -89,5 +104,6 @@ public class Student
     {
         System.out.println(name + ", student ID: " + id + ", credits: " + credits);
 
+        course.printCourse();
     }
 }
