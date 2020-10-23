@@ -9,7 +9,8 @@
  * @author David J. Barnes and Michael Kölling
  * @version 2016.02.29
  * 
- * Modified by Student Name
+ * Modified by Shazaib Choudhry
+ * date 22/10/2020
  */
 public class TicketMachine
 {
@@ -21,6 +22,8 @@ public class TicketMachine
     private int total;
     
     private Ticket ticket;
+    
+    private Coin coin;
 
     /**
      * Create a machine that issues tickets of the given price.
@@ -65,13 +68,10 @@ public class TicketMachine
                                amount);
         }
     }
-
-    /**
-     * Print a ticket if enough money has been inserted, and
-     * reduce the current balance by the ticket price. Print
-     * an error message if more money is required.
-     */
-    public void printTicket(Ticket ticket)
+     public void insertCoin(Coin coin)
+    { balance = balance + coin.getValue();
+    }
+    public void printTicket()
     {
         if(balance >= price) 
         {
