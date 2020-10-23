@@ -68,9 +68,11 @@ public class TicketMachine
                                amount);
         }
     }
+    
      public void insertCoin(Coin coin)
     { balance = balance + coin.getValue();
     }
+    
     public void printTicket()
     {
         if(balance >= price) 

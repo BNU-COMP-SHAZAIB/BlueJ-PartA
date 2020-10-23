@@ -1,0 +1,28 @@
+TicketMachine ticketMa1 = new TicketMachine(3);
+TicketMachine ticketMa1 = new TicketMachine(500);
+Ticket aylesbury = new Ticket("Aylesbury", 220, "22/10/2020");
+TicketMachine ticketMa1 = new TicketMachine(500);
+ticketMa1.getBalance()
+    returned int 0
+Coin twentypence = new Coin(20);
+Coin tenpence = new Coin(10);
+Coin onepound = new Coin(100);
+Coin twopound = new Coin(200);
+Ticket aylesbury = new Ticket("Aylesbury", 220, "22/10/2020");
+Ticket amersham = new Ticket("Amersham", 300, "22/10/2020");
+Ticket wycombe = new Ticket("Wycombe", 330, "22/10/2020");
+ticketMa1.printTicket();
+You must insert at least: 500 more cents.
+ticketMa1.insertMoney(500);
+ticketMa1.printTicket();
+##################
+# The BlueJ Line
+    Exception occurred.
+Ticket aylesbury = new Ticket("Aylesbury", 220, "22/10/2020");
+Ticket amersham = new Ticket("Amersham", 300, "22/10/2020");
+Ticket wycombe = new Ticket("Wycombe", 330, "22/10/2020");
+Coin twentyp = new Coin(20);
+Coin tenp = new Coin(10);
+Coin onepound = new Coin(100);
+Coin twopound = new Coin(200);
+TicketMachine ticketMa1 = new TicketMachine(500);
