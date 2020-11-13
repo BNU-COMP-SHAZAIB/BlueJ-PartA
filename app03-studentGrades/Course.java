@@ -5,7 +5,7 @@
  * @author (shazaib choudhry)
  * @version (28/10/2020)
  */
-public class Course
+ public class Course
 {
     // this is the codenumber
     private String codeNo;

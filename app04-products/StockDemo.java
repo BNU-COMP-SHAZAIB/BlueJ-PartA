@@ -5,22 +5,37 @@
  * 
  * @author David J. Barnes and Michael Kölling.
  * @version 2016.02.29
+ * edited by shazaib choudhry
+ * version 04/11/2020
  */
 public class StockDemo
+
 {
     // The stock manager.
     private StockManager manager;
+    
+    private Random generator = new Random();
+    
+    private int amount = 0;
 
     /**
      * Create a StockManager and populate it with a few
      * sample products.
      */
-    public StockDemo()
+    public StockDemo(StockManager manager)
     {
-        manager = new StockManager();
-        manager.addProduct(new Product(132, "Clock Radio"));
-        manager.addProduct(new Product(37,  "Mobile Phone"));
-        manager.addProduct(new Product(23,  "Microwave Oven"));
+        this.manager = manager;
+        
+        manager.addProduct(new Product(101,  "Television"));
+        manager.addProduct(new Product(102,  "Motorola android phone"));
+        manager.addProduct(new Product(103,  "Washing machine"));
+        manager.addProduct(new Product(104,  "LED"));
+        manager.addProduct(new Product(105,  "Toshiba Laptop"));
+        manager.addProduct(new Product(106,  "Belkin Router"));
+        manager.addProduct(new Product(107,  "Wi-fi Extender"));
+        manager.addProduct(new Product(108,  "Freezer"));
+        manager.addProduct(new Product(109,  "Microwave"));
+        manager.addProduct(new Product(110,  "Toaster"));
     }
     
     /**
@@ -28,70 +43,51 @@ public class StockDemo
      * might be used. Details of one product are shown, the
      * product is restocked, and then the details are shown again.
      */
-    public void demo()
+    public void runDemo()
     {
-        // Show details of all of the products.
-        manager.printProductDetails();
-        // Take delivery of 5 items of one of the products.
-        manager.delivery(132, 5);
-        manager.printProductDetails();
+      manager.printAllProducts();
+        
+      int noProducts = manager.numberProductsInStock();
+      
+      int amount = 0;
+      
+      System.out.println("No of products in stock = " + noProducts);
+      
+      demoDeliverProducts();
+      demoSellProducts();
     }
     
     /**
-     * Show details of the given product. If found,
-     * its name and stock quantity will be shown.
-     * @param id The ID of the product to look for.
+     *Sells the products with a maxmimum of 20 being the amount ordered 
      */
-    public void showDetails(int id)
+    private void demoSellProducts()
     {
-        Product product = getProduct(id);
+      System.out.println("\nSelling all the products\n");
+      System.out.println("============================");
+      System.out.println();
+      for(int id = 101; id <= 110; id++)
+      {
+          amount = generator.nextInt(20);
+          manager.sellProduct(id, amount);
+      }
         
-        if(product != null) 
-        {
-            System.out.println(product.toString());
-        }
+      manager.printAllProducts();
     }
     
     /**
-     * Sell one of the given item.
-     * Show the before and after status of the product.
-     * @param id The ID of the product being sold.
+     * Delivers a maximum of 20 products, with a print functin to show a clear display 
      */
-    public void sellProduct(int id)
+    private void demoDeliverProducts()
     {
-        Product product = getProduct(id);
-        
-        if(product != null) 
-        {
-            showDetails(id);
-            product.sellOne();
-            showDetails(id);
-        }
+      System.out.println("\nDelivering all the products\n");
+      System.out.println("============================");
+      System.out.println();
+       for(int id = 101; id <= 110; id++)
+      {
+         amount = generator.nextInt(20);
+         manager.delivery(id, amount);
+      }
+       
+      manager.printAllProducts();
     }
-    
-    /**
-     * Get the product with the given id from the manager.
-     * An error message is printed if there is no match.
-     * @param id The ID of the product.
-     * @return The Product, or null if no matching one is found.
-     */
-    public Product getProduct(int id)
-    {
-        Product product = manager.findProduct(id);
-        
-        if(product == null) 
-        {
-            System.out.println("Product with ID: " + id +
-                               " is not recognised.");
-        }
-        return product;
     }
-
-    /**
-     * @return The stock manager.
-     */
-    public StockManager getManager()
-    {
-        return manager;
-    }
-}

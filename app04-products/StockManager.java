@@ -4,8 +4,8 @@ import java.util.ArrayList;
  * Manage the stock in a business.
  * The stock is described by zero or more Products.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @shazaib choudhry) 
+ * @version 04/11/2020
  */
 public class StockManager
 {
@@ -37,8 +37,43 @@ public class StockManager
      */
     public void delivery(int id, int amount)
     {
+        Product product = findProduct(id);
+        if(product != null)
+        {
+            product.sell(amount);
+        }
+        else
+        {
+            System.out.println("invalid product id" + id);
+        }
     }
     
+    /**
+     * This method allows the appropriate product to be sold from using its unique id and by the quantity 
+     */
+    public void sellProduct(int id, int quantity)
+    {
+        Product product = findProduct(id);
+        
+        if(product != null)
+        {
+            product.sell(quantity);
+        }
+    }
+    
+    /**
+     * prints the name of the product
+     */
+    public void PrintName(String findName)
+    {
+        for(Product product : stock)
+        {
+            if(product.getName().contains(findName))
+            {
+                System.out.println(product);
+            }
+        }
+    }
     /**
      * Try to find a product in the stock with the given id.
      * @return The identified product, or null if there is none
@@ -46,6 +81,13 @@ public class StockManager
      */
     public Product findProduct(int id)
     {
+        for(Product product : stock)
+        {
+            if(product.getID() == id)
+            {
+                return product;
+            }
+        }
         return null;
     }
     
@@ -56,15 +98,98 @@ public class StockManager
      * @param id The ID of the product.
      * @return The quantity of the given product in stock.
      */
-    public int numberInStock(int id)
+    public int numberProductsInStock()
     {
-        return 0;
+        return stock.size();
     }
-
+    
     /**
-     * Print details of all the products.
+     * Show details of the given product. If found,
+     * its name and stock quantity will be shown.
+     * @param id The ID of the product to look for.
      */
-    public void printProductDetails()
+    public void printDetails(int id)
     {
+        Product product = findProduct(id);
+        if(product != null) 
+        {
+            System.out.println(product.toString());
+        }
+    }
+    
+    /**
+     * This allows for a product to be renamed by inserting its unique id, and changing the name.
+     */
+    public void renameProduct(int id, String name)
+    {
+        Product product = findProduct(id);
+        if(product != null)
+        {
+            product.setName(name);
+        }
+        else
+        {
+            printInvalidID();
+        }
+    }
+    
+    /**
+     * prints error message if returned with invalid product ID
+     */
+    private void printInvalidID()
+    {
+        System.out.println("Invalid product");
+    }
+    
+    /**
+     * prints name with a findName function
+     */
+    public void printName(String findName)
+    {
+        printHeading();
+        System.out.println("products Names with: " + findName + " : ");
+        for(Product product : stock)
+        {
+            if(product.getName().contains(findName))
+            {
+                System.out.println(product);
+            }
+        }
+    }
+    /**
+     * This method will be used to print out all the stock
+     */
+    public void printAllProducts()
+    {
+        printHeading();
+        for(Product product : stock)
+        {
+            //product.print();
+            System.out.println(product);
+        }
+    }
+    
+    private void printHeading()
+    {
+        System.out.println();
+        System.out.println("===================");
+        System.out.println("Berzin's stock list");
+        System.out.println("===================");
+        System.out.println();
+    }
+    
+    /**
+     * print function is used if product amount is low 
+     */
+    public void printLowStock()
+    {
+        for(Product product : stock)
+        {
+            if(product.getQuantity() < 5)
+            {
+                System.out.println("product stock low" + product.toString());
+            }
+        }
+        System.out.println();
     }
 }
