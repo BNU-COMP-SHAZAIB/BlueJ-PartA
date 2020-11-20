@@ -73,7 +73,7 @@ public class TicketMachine
     { balance = balance + coin.getValue();
     }
     
-    public void printTicket()
+    public void printTicket(Ticket ticket)
     {
         if(balance >= price) 
         {

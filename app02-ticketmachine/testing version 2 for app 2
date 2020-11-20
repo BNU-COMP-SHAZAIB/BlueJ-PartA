@@ -1,0 +1,38 @@
+TicketMachine ticketMa1 = new TicketMachine(500);
+Coin tenp = new Coin(10);
+Coin twentyp = new Coin(20);
+Coin pound = new Coin(100);
+Coin twopound = new Coin(200);
+Ticket wycombe = new Ticket("wycombe", 330, "22/10/2020");
+Ticket aylesbury = new Ticket("aylesbury", 220, "22/10/2020");
+Ticket amersham = new Ticket("amersham", 300, "22/10/2020");
+Ticket ticket1 = new Ticket("wycombe", 330, "22/10/2020");
+TicketMachine ticketMa1 = new TicketMachine(500);
+ticketMa1.insertMoney(500);
+ticketMa1.printTicket(ticket1);
+##################
+# The BlueJ Line
+# Ticket towycombe
+# 330 cents.
+# 22/10/2020
+##################
+
+Ticket ticket2 = new Ticket("amersham", 300, "22/10/2020");
+Ticket ticket3 = new Ticket("aylesbury", 220, "22/10/2020");
+ticketMa1.insertMoney(1000);
+ticketMa1.printTicket(ticket2);
+##################
+# The BlueJ Line
+# Ticket toamersham
+# 300 cents.
+# 22/10/2020
+##################
+
+ticketMa1.printTicket(ticket3);
+##################
+# The BlueJ Line
+# Ticket toaylesbury
+# 220 cents.
+# 22/10/2020
+##################
+
