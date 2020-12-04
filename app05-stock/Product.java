@@ -1,15 +1,12 @@
-import java.util.HashSet;
-import java.util.Scanner;
-
 /**
- * InputReader reads typed text input from the standard text terminal. 
- * The text typed by a user is returned.
+ * Model some details of a product sold by a company.
  * 
- * @author     Michael Kölling and David J. Barnes
- * edited by shazaib choudhry
- * @version    0.1 (2016.02.29)
+ * @author David J. Barnes and Michael Kölling.
+ * @version 2016.02.29
+ * edited by shazaib choudhry 
+ * 04/11/2020
  */
-public class InputReader
+public class Product
 {
     // An identifying number for this product.
     private int id;
@@ -129,3 +126,4 @@ public class InputReader
        }
     }
 }
+
