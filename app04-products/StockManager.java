@@ -173,7 +173,7 @@ public class StockManager
     {
         System.out.println();
         System.out.println("===================");
-        System.out.println("Berzin's stock list");
+        System.out.println("Shazaib's stock list");
         System.out.println("===================");
         System.out.println();
     }
